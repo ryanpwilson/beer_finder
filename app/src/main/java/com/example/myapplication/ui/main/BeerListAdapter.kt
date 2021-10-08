@@ -5,19 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import android.graphics.BitmapFactory
 
-import android.graphics.Bitmap
-import android.os.Handler
-import android.os.Looper
 import android.widget.*
 import com.example.myapplication.R
 import com.example.myapplication.models.Beer
-
-import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.URL
+import com.example.myapplication.utils.NetworkUtils
 
 class BeerListAdapter(val viewModel: MainViewModel, val arrayList: ArrayList<Beer>, val context: Context): RecyclerView.Adapter<BeerListAdapter.BeerViewHolder>() {
     override fun onCreateViewHolder(
@@ -90,7 +82,8 @@ class BeerListAdapter(val viewModel: MainViewModel, val arrayList: ArrayList<Bee
             }
             pairings.text = display2
 
-            getBitmapFromURL(beer.image_url)
+            var NetUtil = NetworkUtils()
+            NetUtil.getBitmapFromURL(beer.image_url, item)
 
             item.setOnClickListener {
                 showHide(tagline)
@@ -108,36 +101,6 @@ class BeerListAdapter(val viewModel: MainViewModel, val arrayList: ArrayList<Bee
             } else{
                 View.VISIBLE
             }
-        }
-
-        fun getBitmapFromURL(imgUrl: String?){
-
-            var mainHandler = Handler(Looper.getMainLooper())
-
-            Thread {
-                try {
-                    val url = URL(imgUrl)
-                    val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-                    connection.setDoInput(true)
-                    connection.connect()
-                    val input: InputStream = connection.getInputStream()
-                    val bitmap = BitmapFactory.decodeStream(input)
-
-                    mainHandler.post {
-                        setImage(bitmap)
-                    }
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-            }.start()
-        }
-
-        fun setImage(bitmap: Bitmap?){
-            var logo: ImageView = item.findViewById(R.id.logo)
-            var progress: ProgressBar = item.findViewById(R.id.progress_loader)
-            logo.setImageBitmap(bitmap)
-            logo.visibility = View.VISIBLE
-            progress.visibility = View.GONE
         }
     }
 }
