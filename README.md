@@ -29,4 +29,4 @@ onCLickListener responsible for showing and hiding detail data when a row in the
 NetworkUtils: Two helper methods to fetch the full set of beer data from the API, then the
 individual images for each beer logo.!
 
-[ezgif com-gif-maker](https://user-images.githubusercontent.com/9808737/136595486-5b9a6915-706a-4025-9f9b-076045e74204.gif)
+[Demo](https://user-images.githubusercontent.com/9808737/136595486-5b9a6915-706a-4025-9f9b-076045e74204.gif)
