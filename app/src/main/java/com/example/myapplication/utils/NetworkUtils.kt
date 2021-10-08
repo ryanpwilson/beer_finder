@@ -76,6 +76,13 @@ class NetworkUtils {
                     progress.visibility = View.GONE
                 }
             } catch (e: IOException) {
+                mainHandler.post {
+                    var logo: ImageView = item.findViewById(R.id.logo)
+                    var progress: ProgressBar = item.findViewById(R.id.progress_loader)
+                    logo.setImageResource(R.drawable.icon)
+                    logo.visibility = View.VISIBLE
+                    progress.visibility = View.GONE
+                }
                 e.printStackTrace()
             }
         }.start()
