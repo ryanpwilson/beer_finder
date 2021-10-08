@@ -27,6 +27,6 @@ presented as a CardView within the parent Recycler view in the DisplayListActivi
 onCLickListener responsible for showing and hiding detail data when a row in the list is selected.
 
 NetworkUtils: Two helper methods to fetch the full set of beer data from the API, then the
-individual images for each beer logo.!
+individual images for each beer logo.
 
 [Demo](https://user-images.githubusercontent.com/9808737/136595486-5b9a6915-706a-4025-9f9b-076045e74204.gif)
