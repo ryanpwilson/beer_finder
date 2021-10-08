@@ -19,6 +19,9 @@ import java.net.URL
 class NetworkUtils {
     var mainHandler = Handler(Looper.getMainLooper())
 
+    /* get the beer data, accepts the app context to send the resulting intent to the correct place
+    * ctx: the context from the MainActivity to return an Intent
+    * */
      fun sendGet(ctx: MainActivity) {
         var client = OkHttpClient()
         val request = Request.Builder()
@@ -40,12 +43,20 @@ class NetworkUtils {
         })
     }
 
+    /* return the data back to the activities
+    * data: the json from the API
+    * ctx: the context from the MainActivity where the intent originates
+    * */
     fun sendIntent(data: String, ctx: MainActivity){
         val intent = Intent(ctx, DiplayListActivity::class.java)
         intent.putExtra("data", data);
         ctx.startActivity(intent)
     }
 
+    /* pass the imageurl to fetch, and the item to render once the data is returned
+    * imgUrl: the url for the beer logo from the Beer class
+    * item: an instance of the BeerViewHolder
+    * */
     fun getBitmapFromURL(imgUrl: String?, item: View){
 
         Thread {
