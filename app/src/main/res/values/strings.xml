@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Beer Finder</string>
+    <string name="get_some_beers">Get Some Beers!</string>
+    <string name="ibu_label">IBU: </string>
+    <string name="abv_label">ABV: </string>
+    <string name="description_label">Description: </string>
+    <string name="ingredients_label">Ingredients: </string>
+    <string name="pairings_label">Food Pairings: </string>
+</resources>
