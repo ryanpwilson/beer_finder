@@ -44,6 +44,18 @@ class UnitTest {
         var testModel = gson.fromJson(jsonString, Temp::class.java)
         assertEquals(testModel.duration, 75)
     }
+    @Test
+    fun method_test(){
+        //test to parse json into method object
+    }
+    @Test
+    fun ingredients_test(){
+        // test to parse nested ingedient values
+    }
+    @Test
+    fun volume_test(){
+        // test for the volume data class
+    }
 
 }
 
