@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import com.example.myapplication.DiplayListActivity
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
@@ -30,7 +31,14 @@ class NetworkUtils {
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                e.printStackTrace()
+                mainHandler.post {
+                    val text = "We could not fetch the beers, please check you connection and try again!"
+                    val duration = Toast.LENGTH_SHORT
+                    Toast.makeText(ctx, text, duration).show()
+                    /*relaunch the main activity to reset button state*/
+                    val intent = Intent(ctx, MainActivity::class.java)
+                    ctx.startActivity(intent)
+                }
             }
 
             override fun onResponse(call: Call, response: Response) {
