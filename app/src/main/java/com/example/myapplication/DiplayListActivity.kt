@@ -26,11 +26,13 @@ class DiplayListActivity : AppCompatActivity() {
         parseData(data)
     }
 
+    /*bind to the layout manager, and set up the observer */
     private fun initialiseAdapter(){
         mainrecycler.layoutManager = viewManager
         observeData()
     }
 
+    /*helper method to parse the raw json directly to Beer objects*/
     fun parseData(data: String?){
         val gson = GsonBuilder().serializeNulls().create()
         val info: List<Beer> = gson.fromJson(data, Array<Beer>::class.java).toList()
@@ -40,12 +42,14 @@ class DiplayListActivity : AppCompatActivity() {
         }
     }
 
+    /*bind the observer to the view model*/
     fun observeData(){
         viewModel.lst.observe(this, Observer{
             mainrecycler.adapter= BeerListAdapter(viewModel, it, this)
         })
     }
 
+    /*insert a single beer record into the data set*/
     fun addData(beer: Beer){
         viewModel.add(beer)
         mainrecycler.adapter?.notifyDataSetChanged()

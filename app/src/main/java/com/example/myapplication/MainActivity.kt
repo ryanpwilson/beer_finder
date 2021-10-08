@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         but = findViewById(R.id.button)
         load = findViewById(R.id.progress_loader)
         var NetUtil = NetworkUtils()
+        /*
+        Make the request for data, then display the loading indicator
+         */
         but.setOnClickListener {
             load.visibility = View.VISIBLE
             but.visibility = View.GONE
@@ -25,6 +28,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*
+    Make sure the button state is reset when we navigate back to main
+     */
     override fun onResume() {
         super.onResume()
         load.visibility = View.GONE
