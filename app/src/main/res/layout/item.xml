@@ -17,7 +17,6 @@
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@id/logo"
             android:padding="10dp"
-            android:text="Name"
             android:textSize="24sp"
             android:textColor="#000" />
 
@@ -29,7 +28,6 @@
             android:layout_toLeftOf="@id/logo"
             android:layout_below="@id/title"
             android:padding="10dp"
-            android:text="Name"
             android:textSize="14sp" />
 
         <LinearLayout
@@ -44,7 +42,7 @@
                 android:id="@+id/ibu_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IBU: "
+                android:text="@string/ibu_label"
                 />
             <TextView
                 android:id="@+id/ibu"
@@ -66,7 +64,7 @@
                 android:id="@+id/abv_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ABV: "
+                android:text="@string/abv_label"
                 />
             <TextView
                 android:id="@+id/abv"
@@ -88,7 +86,7 @@
                 android:id="@+id/description_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Description: "
+                android:text="@string/description_label"
                 />
             <TextView
                 android:id="@+id/description"
@@ -110,7 +108,7 @@
                 android:id="@+id/ingredients_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ingredients: "
+                android:text="@string/ingredients_label"
                 />
             <TextView
                 android:id="@+id/ingredients"
@@ -132,7 +130,7 @@
                 android:id="@+id/pairings_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Food Pairings: "
+                android:text="@string/pairings_label"
                 />
             <TextView
                 android:id="@+id/pairings"

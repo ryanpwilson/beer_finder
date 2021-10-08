@@ -70,6 +70,7 @@ class BeerListAdapter(val viewModel: MainViewModel, val arrayList: ArrayList<Bee
                 display = display + "${it.name} -  ${it.amount.value} ${it.amount.unit} \n "
             }
             var iter = hops.iterator()
+
             display = display + "\nHops: \n "
             iter.forEach{
                 display = display + "${it.name} -  ${it.amount.value} ${it.amount.unit} - ${it.attribute} \n "

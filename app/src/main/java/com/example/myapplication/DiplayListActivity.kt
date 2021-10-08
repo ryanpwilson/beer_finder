@@ -20,8 +20,8 @@ class DiplayListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_diplay_list)
         mainrecycler = findViewById(R.id.recycler)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        initialiseAdapter()
 
+        initialiseAdapter()
         val data = intent.getStringExtra("data")
         parseData(data)
     }
